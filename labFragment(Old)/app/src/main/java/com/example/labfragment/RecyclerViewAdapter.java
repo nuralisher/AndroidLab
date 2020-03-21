@@ -14,10 +14,9 @@ import java.util.ArrayList;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
-//    FragmentListener fragmentListener;
+    FragmentListener fragmentListener;
     Context context;
     ArrayList<Mail> mailList = new ArrayList<Mail>();
-//    FragmentListener fragmentListener;
 
     public RecyclerViewAdapter(ArrayList<Mail> mailList, Context context ){
         this.context = context;
@@ -61,9 +60,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 public void onClick(View v) {
 //                    Intent intent = new Intent(context , Main2Activity.class);
 //                    intent.putExtra("mail" , mailList.get(position));
-//                    fragmentListener.onClick()
-//                    fragmentListener = (FragmentListener)Main2Activity.context;
-//                    fragmentListener.onClick(mailList.get(position));
+//                    fragmentListener.onClick();
                     Mail.selected = mailList.get(position);
                     RightFragment.select();
                 }
@@ -75,7 +72,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
-//    public interface FragmentListener{
-//        void onClick(Mail mail);
-//    }
+    public interface FragmentListener{
+        void onClick();
+    }
 }

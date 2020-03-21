@@ -1,7 +1,6 @@
 package com.example.labfragment;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +22,6 @@ import java.util.ArrayList;
 public class RightFragment extends Fragment  {
 
     static TextView title , description , detailedInfo;
-    static Mail mail;
-    SharedPreferences sharedPreferences;
 
     @Nullable
     @Override
@@ -37,14 +34,19 @@ public class RightFragment extends Fragment  {
         title = (TextView) view.findViewById(R.id.title);
         description = (TextView) view.findViewById(R.id.description);
         detailedInfo = (TextView) view.findViewById(R.id.info);
+
+        super.onViewCreated(view, savedInstanceState);
     }
 
-    public  static void select() {
+
+
+
+
+    public static void select() {
 //        Mail mail = super.getActivity().getIntent().getParcelableExtra("mail");
         Mail mail = Mail.selected;
         title.setText(mail.getTitle() + " (id:"+mail.getId() + ")");
         description.setText(mail.getDescription());
         detailedInfo.setText(mail.getDetailedInfo());
     }
-
 }
